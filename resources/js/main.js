@@ -17,6 +17,9 @@ const threeProject = (() => {
 	let listArray = [];
 	let imagesList = [];
 	let boxGap = { x: 0.25, y: 0.503 };
+	const listColumn = 3;
+
+	let meshWidth, meshHeight, meshDepth;
 
 	initScrollTop = scrollY;
 
@@ -192,9 +195,9 @@ const threeProject = (() => {
 	const setTheSizing = () => {
 		const size = new THREE.Box3().setFromObject(mesh);
 
-		const meshWidth = size.max.x - size.min.x;
-		const meshHeight = size.max.y - size.min.y;
-		const meshDepth = size.max.z - size.min.z;
+		meshWidth = size.max.x - size.min.x;
+		meshHeight = size.max.y - size.min.y;
+		meshDepth = size.max.z - size.min.z;
 
 		let meshPosition = mesh.position;
 		let cameraDistanceFromMesh = camera.position.distanceTo(meshPosition);
@@ -211,7 +214,6 @@ const threeProject = (() => {
 
 		setViewOffsetFunction();
 
-		const listColumn = 3;
 		for (let i = 0; i < listArray.length; i++) {
 			const item = listArray[i];
 
@@ -287,14 +289,14 @@ const threeProject = (() => {
 				});
 
 				mesh.scale.hoverTween && mesh.scale.hoverTween.kill();
-				mesh.scale.hoverTween = gsap.to(mesh.scale, 0.25, {
+				mesh.scale.hoverTween = gsap.to(mesh.scale, 0.75, {
 					x: scale * 1.2,
 					y: scale * 1.2,
 					ease: "cubic.out",
 				});
 
 				mesh.position.hoverTween && mesh.position.hoverTween.kill();
-				mesh.position.hoverTween = gsap.to(meshPositionUniform, 0.25, {
+				mesh.position.hoverTween = gsap.to(meshPositionUniform, 0.75, {
 					x: mesh.position.x - intersected[0].point.x,
 					ease: "cubic.out",
 				});
@@ -311,16 +313,16 @@ const threeProject = (() => {
 				if (currentMesh == mesh) return;
 
 				mesh.userData.hoverTween && mesh.userData.hoverTween.kill();
-				mesh.userData.hoverTween = gsap.to(meshHoverUniform, 0.35, { z: 0, ease: "cubic.out" });
+				mesh.userData.hoverTween = gsap.to(meshHoverUniform, 0.5, { z: 0, ease: "cubic.out" });
 
 				mesh.userData.progressTween && mesh.userData.progressTween.kill();
-				mesh.userData.progressTween = gsap.to(meshProgressUniform, 0.35, { value: 0, ease: "cubic.out" });
+				mesh.userData.progressTween = gsap.to(meshProgressUniform, 0.5, { value: 0, ease: "cubic.out" });
 
 				mesh.scale.hoverTween && mesh.scale.hoverTween.kill();
-				mesh.scale.hoverTween = gsap.to(mesh.scale, 0.35, { x: scale, y: scale, ease: "cubic.out" });
+				mesh.scale.hoverTween = gsap.to(mesh.scale, 0.5, { x: scale, y: scale, ease: "cubic.out" });
 
 				mesh.position.hoverTween && mesh.position.hoverTween.kill();
-				mesh.position.hoverTween = gsap.to(meshPositionUniform, 0.35, { x: 0, ease: "cubic.out" });
+				mesh.position.hoverTween = gsap.to(meshPositionUniform, 0.5, { x: 0, ease: "cubic.out" });
 			}
 		});
 
@@ -349,6 +351,16 @@ const threeProject = (() => {
 		areaHeight = window.innerHeight;
 		renderer.setSize(areaWidth, areaHeight);
 		renderer.setPixelRatio(devicePixelRatio);
+
+		scale = meshArea.offsetHeight / areaHeight;
+		for (let i = 0; i < listArray.length; i++) {
+			const item = listArray[i];
+
+			item.position.x = (meshWidth + boxGap.x) * scale * (i % listColumn);
+			item.position.y = -(meshHeight + boxGap.y) * scale * Math.floor(i / listColumn);
+			item.savePosition = item.position.clone();
+			item.scale.set(scale, scale);
+		}
 
 		setViewOffsetFunction();
 		camera.aspect = areaWidth / areaHeight;
