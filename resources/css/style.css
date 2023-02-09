@@ -1,0 +1,162 @@
+* {
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+html,
+body {
+  font-family: "Noto Sans KR";
+  font-size: 62.5%;
+}
+
+ul,
+ol,
+li {
+  list-style: none;
+}
+
+/* noto-sans-kr-100 - latin_korean */
+@font-face {
+  font-family: "Noto Sans KR";
+  font-style: normal;
+  font-weight: 100;
+  src: url("../fonts/noto-sans-kr-v27-latin_korean-100.eot"); /* IE9 Compat Modes */
+  src: local(""), url("../fonts/noto-sans-kr-v27-latin_korean-100.eot?#iefix") format("embedded-opentype"), url("../fonts/noto-sans-kr-v27-latin_korean-100.woff2") format("woff2"), url("../fonts/noto-sans-kr-v27-latin_korean-100.woff") format("woff"), url("../fonts/noto-sans-kr-v27-latin_korean-100.ttf") format("truetype"), url("../fonts/noto-sans-kr-v27-latin_korean-100.svg#NotoSansKR") format("svg"); /* Legacy iOS */
+}
+/* noto-sans-kr-300 - latin_korean */
+@font-face {
+  font-family: "Noto Sans KR";
+  font-style: normal;
+  font-weight: 300;
+  src: url("../fonts/noto-sans-kr-v27-latin_korean-300.eot"); /* IE9 Compat Modes */
+  src: local(""), url("../fonts/noto-sans-kr-v27-latin_korean-300.eot?#iefix") format("embedded-opentype"), url("../fonts/noto-sans-kr-v27-latin_korean-300.woff2") format("woff2"), url("../fonts/noto-sans-kr-v27-latin_korean-300.woff") format("woff"), url("../fonts/noto-sans-kr-v27-latin_korean-300.ttf") format("truetype"), url("../fonts/noto-sans-kr-v27-latin_korean-300.svg#NotoSansKR") format("svg"); /* Legacy iOS */
+}
+/* noto-sans-kr-regular - latin_korean */
+@font-face {
+  font-family: "Noto Sans KR";
+  font-style: normal;
+  font-weight: 400;
+  src: url("../fonts/noto-sans-kr-v27-latin_korean-regular.eot"); /* IE9 Compat Modes */
+  src: local(""), url("../fonts/noto-sans-kr-v27-latin_korean-regular.eot?#iefix") format("embedded-opentype"), url("../fonts/noto-sans-kr-v27-latin_korean-regular.woff2") format("woff2"), url("../fonts/noto-sans-kr-v27-latin_korean-regular.woff") format("woff"), url("../fonts/noto-sans-kr-v27-latin_korean-regular.ttf") format("truetype"), url("../fonts/noto-sans-kr-v27-latin_korean-regular.svg#NotoSansKR") format("svg"); /* Legacy iOS */
+}
+/* noto-sans-kr-500 - latin_korean */
+@font-face {
+  font-family: "Noto Sans KR";
+  font-style: normal;
+  font-weight: 500;
+  src: url("../fonts/noto-sans-kr-v27-latin_korean-500.eot"); /* IE9 Compat Modes */
+  src: local(""), url("../fonts/noto-sans-kr-v27-latin_korean-500.eot?#iefix") format("embedded-opentype"), url("../fonts/noto-sans-kr-v27-latin_korean-500.woff2") format("woff2"), url("../fonts/noto-sans-kr-v27-latin_korean-500.woff") format("woff"), url("../fonts/noto-sans-kr-v27-latin_korean-500.ttf") format("truetype"), url("../fonts/noto-sans-kr-v27-latin_korean-500.svg#NotoSansKR") format("svg"); /* Legacy iOS */
+}
+/* noto-sans-kr-700 - latin_korean */
+@font-face {
+  font-family: "Noto Sans KR";
+  font-style: normal;
+  font-weight: 700;
+  src: url("../fonts/noto-sans-kr-v27-latin_korean-700.eot"); /* IE9 Compat Modes */
+  src: local(""), url("../fonts/noto-sans-kr-v27-latin_korean-700.eot?#iefix") format("embedded-opentype"), url("../fonts/noto-sans-kr-v27-latin_korean-700.woff2") format("woff2"), url("../fonts/noto-sans-kr-v27-latin_korean-700.woff") format("woff"), url("../fonts/noto-sans-kr-v27-latin_korean-700.ttf") format("truetype"), url("../fonts/noto-sans-kr-v27-latin_korean-700.svg#NotoSansKR") format("svg"); /* Legacy iOS */
+}
+/* noto-sans-kr-900 - latin_korean */
+@font-face {
+  font-family: "Noto Sans KR";
+  font-style: normal;
+  font-weight: 900;
+  src: url("../fonts/noto-sans-kr-v27-latin_korean-900.eot"); /* IE9 Compat Modes */
+  src: local(""), url("../fonts/noto-sans-kr-v27-latin_korean-900.eot?#iefix") format("embedded-opentype"), url("../fonts/noto-sans-kr-v27-latin_korean-900.woff2") format("woff2"), url("../fonts/noto-sans-kr-v27-latin_korean-900.woff") format("woff"), url("../fonts/noto-sans-kr-v27-latin_korean-900.ttf") format("truetype"), url("../fonts/noto-sans-kr-v27-latin_korean-900.svg#NotoSansKR") format("svg"); /* Legacy iOS */
+}
+canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.list-container {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  width: 1095px;
+  margin: 0 auto;
+}
+.list-container .list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+.list-container .listitem {
+  -ms-flex-preferred-size: 33.3%;
+      flex-basis: 33.3%;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  max-width: 325px;
+  margin-bottom: 60px;
+}
+@media (min-width: 960px) and (max-width: 1329px) {
+  .list-container .listitem {
+    -ms-flex-preferred-size: 50%;
+        flex-basis: 50%;
+  }
+}
+@media (max-width: 959px) {
+  .list-container .listitem {
+    -ms-flex-preferred-size: 100%;
+        flex-basis: 100%;
+  }
+}
+.list-container .listitem > a {
+  display: block;
+  text-decoration: none;
+  color: #000;
+}
+.list-container .listitem > a:hover .number {
+  -webkit-transform: translateY(24px);
+          transform: translateY(24px);
+}
+.list-container .listitem > a:hover .caption {
+  -webkit-transform: translateY(-30px);
+          transform: translateY(-30px);
+}
+.list-container .listitem > a img {
+  -webkit-box-flex: 1;
+      -ms-flex: auto;
+          flex: auto;
+  width: 100%;
+  height: auto;
+}
+.list-container .listitem > a .number {
+  font-size: 22px;
+  -webkit-transition: -webkit-transform 0.5s cubic-bezier(0.215, 0.61, 0.355, 1) 0.1s;
+  transition: -webkit-transform 0.5s cubic-bezier(0.215, 0.61, 0.355, 1) 0.1s;
+  transition: transform 0.5s cubic-bezier(0.215, 0.61, 0.355, 1) 0.1s;
+  transition: transform 0.5s cubic-bezier(0.215, 0.61, 0.355, 1) 0.1s, -webkit-transform 0.5s cubic-bezier(0.215, 0.61, 0.355, 1) 0.1s;
+}
+.list-container .listitem > a .caption {
+  font-size: 16px;
+  padding-top: 5px;
+  -webkit-transition: -webkit-transform 0.5s cubic-bezier(0.215, 0.61, 0.355, 1) 0.1s;
+  transition: -webkit-transform 0.5s cubic-bezier(0.215, 0.61, 0.355, 1) 0.1s;
+  transition: transform 0.5s cubic-bezier(0.215, 0.61, 0.355, 1) 0.1s;
+  transition: transform 0.5s cubic-bezier(0.215, 0.61, 0.355, 1) 0.1s, -webkit-transform 0.5s cubic-bezier(0.215, 0.61, 0.355, 1) 0.1s;
+}
+
+@media (max-width: 959px) {
+  body {
+    background-color: orange;
+  }
+}
+@media (min-width: 960px) and (max-width: 1329px) {
+  body {
+    background-color: green;
+  }
+}

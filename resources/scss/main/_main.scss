@@ -1,0 +1,65 @@
+canvas {
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 10;
+	pointer-events: none;
+}
+
+.list-container {
+	position: absolute;
+	top: 0;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 1095px;
+	margin: 0 auto;
+
+	.list {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+	}
+
+	.listitem {
+		flex-basis: 33.3%;
+		flex-direction: column;
+		max-width: 325px;
+		margin-bottom: 60px;
+		@include tablet {
+			flex-basis: 50%;
+		}
+		@include mobile {
+			flex-basis: 100%;
+		}
+
+		> a {
+			display: block;
+			text-decoration: none;
+			color: #000;
+			&:hover {
+				.number {
+					transform: translateY(24px);
+				}
+				.caption {
+					transform: translateY(-30px);
+				}
+			}
+
+			img {
+				flex: auto;
+				width: 100%;
+				height: auto;
+				// filter: grayscale(100%);
+			}
+			.number {
+				font-size: 22px;
+				transition: transform 0.5s cubic-bezier(0.215, 0.61, 0.355, 1) 0.1s;
+			}
+			.caption {
+				font-size: 16px;
+				padding-top: 5px;
+				transition: transform 0.5s cubic-bezier(0.215, 0.61, 0.355, 1) 0.1s;
+			}
+		}
+	}
+}
