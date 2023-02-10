@@ -82,6 +82,12 @@ canvas {
   width: 1095px;
   margin: 0 auto;
 }
+@media (min-width: 960px) and (max-width: 1329px) {
+  .list-container {
+    width: 750px;
+    border: 1px solid red;
+  }
+}
 .list-container .list {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -133,6 +139,9 @@ canvas {
           flex: auto;
   width: 100%;
   height: auto;
+  opacity: 0;
+  -webkit-filter: grayscale(100%);
+          filter: grayscale(100%);
 }
 .list-container .listitem > a .number {
   font-size: 22px;
@@ -148,15 +157,4 @@ canvas {
   transition: -webkit-transform 0.5s cubic-bezier(0.215, 0.61, 0.355, 1) 0.1s;
   transition: transform 0.5s cubic-bezier(0.215, 0.61, 0.355, 1) 0.1s;
   transition: transform 0.5s cubic-bezier(0.215, 0.61, 0.355, 1) 0.1s, -webkit-transform 0.5s cubic-bezier(0.215, 0.61, 0.355, 1) 0.1s;
-}
-
-@media (max-width: 959px) {
-  body {
-    background-color: orange;
-  }
-}
-@media (min-width: 960px) and (max-width: 1329px) {
-  body {
-    background-color: green;
-  }
 }

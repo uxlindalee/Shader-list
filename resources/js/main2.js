@@ -364,9 +364,9 @@ const threeProject = (() => {
 			// }
 		});
 
-		document.addEventListener("click", function () {
-			console.log("check");
-		});
+		// document.addEventListener("click", function () {
+		// 	console.log("check");
+		// });
 
 		function leaveMesh(mesh) {
 			mesh.renderOrder = 0;
