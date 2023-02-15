@@ -4,6 +4,10 @@ canvas {
 	left: 0;
 	z-index: 10;
 	pointer-events: none;
+	overflow: visible;
+	&.on {
+		overflow: hidden;
+	}
 }
 
 .list-container {
@@ -13,10 +17,9 @@ canvas {
 	transform: translateX(-50%);
 	width: 1095px;
 	margin: 0 auto;
-	@include tablet {
-		width: 750px;
-		border: 1px solid red;
-	}
+	// @include tablet {
+	// 	width: 750px;
+	// }
 
 	.list {
 		display: flex;
@@ -29,12 +32,12 @@ canvas {
 		flex-direction: column;
 		max-width: 325px;
 		margin-bottom: 60px;
-		@include tablet {
-			flex-basis: 50%;
-		}
-		@include mobile {
-			flex-basis: 100%;
-		}
+		// @include tablet {
+		// 	flex-basis: 50%;
+		// }
+		// @include mobile {
+		// 	flex-basis: 100%;
+		// }
 
 		> a {
 			display: block;
@@ -53,8 +56,6 @@ canvas {
 				flex: auto;
 				width: 100%;
 				height: auto;
-				opacity: 0;
-				filter: grayscale(100%);
 			}
 			.number {
 				font-size: 22px;
@@ -66,5 +67,53 @@ canvas {
 				transition: transform 0.5s cubic-bezier(0.215, 0.61, 0.355, 1) 0.1s;
 			}
 		}
+	}
+}
+
+.menu-trigger {
+	position: fixed;
+	top: 50%;
+	left: 30px;
+	z-index: 9999;
+	width: 50px;
+	height: 50px;
+	padding: 10px;
+	background-color: #fff;
+	border-radius: 50%;
+
+	.btn-menu {
+		cursor: pointer;
+		position: relative;
+		width: 100%;
+		height: 100%;
+		border: none;
+		background-color: transparent;
+
+		&::before {
+			content: "";
+			position: absolute;
+			top: 50%;
+			left: 0;
+			width: 100%;
+			height: 3px;
+			background-color: #000;
+			transform: translate3d(0, -1.5px, 0) rotate(45deg);
+		}
+		&::after {
+			content: "";
+			position: absolute;
+			top: 0;
+			left: 50%;
+			width: 3px;
+			height: 100%;
+			background-color: #000;
+			transform: translate3d(-1.5px, 0, 0) rotate(-135deg);
+		}
+	}
+
+	transition: transform 0.3s;
+	transform-origin: center;
+	&:hover {
+		transform: scale(1.2);
 	}
 }
